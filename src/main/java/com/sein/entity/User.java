@@ -14,6 +14,9 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
+    private String userId;
+
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
@@ -22,4 +25,11 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
+
+    public User(String userId, String password, String username, UserRoleEnum role){
+        this.userId = userId;
+        this.password = password;
+        this.username = username;
+        this.role = role;
+    }
 }
