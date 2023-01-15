@@ -2,19 +2,19 @@ package com.sein.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity(name="USERS")
 @Getter
+@Setter
 @NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
-
-    @Column(nullable = false)
-    private String userId;
 
     @Column(nullable = false)
     private String password;
@@ -26,8 +26,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
-    public User(String userId, String password, String username, UserRoleEnum role){
-        this.userId = userId;
+
+    public User(String password, String username, UserRoleEnum role){
         this.password = password;
         this.username = username;
         this.role = role;
